@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B_hoops FES</title>
+  <style>
+    /* 全体設定 */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth; /* リンククリック時にスムーズにスクロール */
+    }
+    body {
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", MeiYo, sans-serif;
+      background-color: #e6f4f8; /* 爽やかな水色背景 */
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    /* ヘッダー・メインビジュアル */
+    header {
+      background: #ffffff;
+      text-align: center;
+      padding: 30px 15px 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .hero-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      max-height: 450px;
+      object-fit: cover;
+    }
+    h1 {
+      font-size: 1.8rem;
+      color: #1b4965;
+      margin-top: 15px;
+    }
+
+    /* コンテナ */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px 15px 50px;
+    }
+
+    /* セクション共通 */
+    .section-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .section-title {
+      font-size: 1.4rem;
+      color: #1b4965;
+      border-bottom: 3px solid #62b6cb;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* タイムスケジュール（カードデザイン） */
+    .timeline-item {
+      border-left: 4px solid #62b6cb;
+      padding-left: 15px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .timeline-time {
+      font-weight: bold;
+      color: #092327;
+      font-size: 1.1rem;
+    }
+    .timeline-title {
+      font-weight: bold;
+      font-size: 1.15rem;
+      color: #1b4965;
+      margin: 4px 0;
+    }
+    
+    /* スケジュール内のリンクボタンデザイン */
+    .schedule-link {
+      display: inline-block;
+      margin: 4px 4px 4px 0;
+      padding: 6px 12px;
+      background-color: #bee9e8;
+      color: #1b4965;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+    .schedule-link:hover {
+      background-color: #62b6cb;
+      color: #ffffff;
+    }
+
+    /* 詳細コンテンツ */
+    .detail-box {
+      background: #f8fdff;
+      border: 1px solid #cae9ff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+    .detail-box h4 {
+      color: #1b4965;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+    }
+
+    /* バッジ・注意書き */
+    .badge-notice {
+      display: inline-block;
+      background: #e63946;
+      color: #fff;
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 5px;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1b4965;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- メインヘッダー -->
+  <header>
+    <!-- Jimdoのメイン画像を読み込んでいます -->
+    <img src="https://b-hoops-fes-1.jimdosite.com/s/img/user/142981308/1723512345.jpg" alt="B_hoops FES" class="hero-img" onerror="this.style.display='none'">
+    <h1>B_hoops FES</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- タイムスケジュール（概要＆リンク） -->
+    <section class="section-card">
+      <h2 class="section-title">📅 タイムスケジュール</h2>
+      
+      <!-- 11:00～ -->
+      <div class="timeline-item">
+        <div class="timeline-time">11:00～12:00</div>
+        <div class="timeline-title">【昼の部】受付</div>
+        <p>昼食にORIBIOランチBOXをお渡しします。</p>
+      </div>
+
+      <!-- 12:00～ 昼の部コンテンツ -->
+      <div class="timeline-item">
+        <div class="timeline-time">12:00～</div>
+        <div class="timeline-title">【昼の部】メインイベント</div>
+        <p style="margin-bottom: 8px;">タップすると各詳細へジャンプします：</p>
+        <div>
+          <a href="#sports" class="schedule-link">⚽ スポーツ大会</a>
+          <a href="#shop" class="schedule-link">🛖 古民家ショップ・屋台</a>
+        </div>
+      </div>
+
+      <!-- 16:30～ -->
+      <div class="timeline-item">
+        <div class="timeline-time">16:30～17:30</div>
+        <div class="timeline-title">【夜の部】受付</div>
+      </div>
+
+      <!-- 17:00～ 夜の部コンテンツ -->
+      <div class="timeline-item">
+        <div class="timeline-time">17:00～</div>
+        <div class="timeline-title">【夜の部】メインイベント</div>
+        <p style="margin-bottom: 8px;">タップすると各詳細へジャンプします：</p>
+        <div>
+          <a href="#yatai" class="schedule-link">🍜 ORIBIOスタイル屋台</a>
+          <a href="#stage" class="schedule-link">🎤 野外イベント・ステージ</a>
+        </div>
+      </div>
+
+      <!-- 20:30～ -->
+      <div class="timeline-item">
+        <div class="timeline-time">20:30～</div>
+        <div class="timeline-title">終了予定</div>
+      </div>
+    </section>
+
+    <!-- 昼の部 詳細セクション -->
+    <section class="section-card">
+      <h2 class="section-title">☀️ 昼の部 詳細</h2>
+
+      <!-- スポーツ大会 -->
+      <div id="sports" class="detail-box">
+        <h4>⚽ B_hoops.主催スポーツ大会 <span class="badge-notice">要事前エントリー</span></h4>
+        <p>白熱のスポーツ大会を開催！仲間と一緒に盛り上がりましょう！</p>
+        <ul style="margin-left: 20px; margin-top: 8px;">
+          <li><strong>12:30～</strong> ビーチバレー大会</li>
+          <li><strong>15:00～</strong> モルック大会</li>
+        </ul>
+      </div>
+
+      <!-- 古民家ショップ -->
+      <div id="shop" class="detail-box">
+        <h4>🛖 遊び屋台 & 古民家ショップ</h4>
+        <p>昔ながらの雰囲気を楽しめる遊び屋台や、素敵なハンドメイド・雑貨が集まる古民家ショップが出店します。</p>
+      </div>
+    </section>
+
+    <!-- 夜の部 詳細セクション -->
+    <section class="section-card">
+      <h2 class="section-title">🌙 夜の部 詳細</h2>
+
+      <!-- 屋台 -->
+      <div id="yatai" class="detail-box">
+        <h4>🍜 ORIBIOスタイル屋台（17:00～）</h4>
+        <p>毎年大好評のヴィーガンORIBIOスタイルの屋台が今年も登場！</p>
+        <p style="margin-top: 5px;">カレーライス、焼きそば、唐揚げなど、バラエティ豊かなメニューをご用意しています。さらに現地の人気ラーメン店も出店予定！</p>
+      </div>
+
+      <!-- 野外イベント -->
+      <div id="stage" class="detail-box">
+        <h4>🎤 野外イベント（18:30～）</h4>
+        <p>The Campusの生徒による心のこもった出し物を披露！</p>
+        <p style="margin-top: 5px;">後半には豪華景品が当たる「ビンゴ大会」など、ご来場の皆さま全員で参加して楽しめる企画をご用意しています。</p>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; B_hoops FES. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
