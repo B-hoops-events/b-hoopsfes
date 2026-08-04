@@ -5,203 +5,306 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B_hoops FES</title>
   <style>
-    /* 全体設定 */
+    /* ---- 全体設定（空と海の色合い） ---- */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     html {
-      scroll-behavior: smooth; /* リンククリック時にスムーズにスクロール */
+      scroll-behavior: smooth;
     }
     body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", MeiYo, sans-serif;
-      background-color: #e6f4f8; /* 爽やかな水色背景 */
-      color: #2c3e50;
+      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%); /* 澄んだ空と海へのグラデーション */
+      color: #0f172a;
       line-height: 1.6;
+      padding-bottom: 60px;
     }
 
-    /* ヘッダー・メインビジュアル */
-    header {
+    /* ---- 1. トップページ（ヒーローセクション） ---- */
+    .hero {
       background: #ffffff;
       text-align: center;
-      padding: 30px 15px 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 30px 15px 40px;
+      border-bottom: 4px solid #38bdf8;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.15);
     }
     .hero-img {
       max-width: 100%;
       height: auto;
-      border-radius: 12px;
-      max-height: 450px;
+      border-radius: 16px;
+      max-height: 480px;
       object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    h1 {
-      font-size: 1.8rem;
-      color: #1b4965;
-      margin-top: 15px;
+    .logo-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #0284c7; /* 海の明るい青 */
+      margin-top: 20px;
+      letter-spacing: 1px;
+    }
+    .event-date-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 8px 24px;
+      border-radius: 50px;
+      margin-top: 12px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
     }
 
-    /* コンテナ */
+    /* ---- コンテナ ---- */
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 20px 15px 50px;
+      padding: 0 15px;
     }
 
-    /* セクション共通 */
+    /* ---- セクション共通カード ---- */
     .section-card {
       background: #ffffff;
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      padding: 28px 20px;
+      margin-top: 30px;
+      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.08);
+      border: 1px solid #e0f2fe;
     }
     .section-title {
       font-size: 1.4rem;
-      color: #1b4965;
-      border-bottom: 3px solid #62b6cb;
-      padding-bottom: 8px;
+      color: #0369a1;
+      border-bottom: 3px solid #38bdf8;
+      padding-bottom: 10px;
       margin-bottom: 20px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
+      font-weight: 700;
     }
 
-    /* タイムスケジュール（カードデザイン） */
+    /* ---- 2. 概要リスト（参加費・受付開始日時） ---- */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+    .info-box {
+      background: #f0f9ff;
+      border-left: 5px solid #0284c7;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .info-box label {
+      font-size: 0.85rem;
+      color: #0369a1;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .info-box .value {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: #0f172a;
+    }
+
+    /* ---- 3. タイムスケジュール ---- */
     .timeline-item {
-      border-left: 4px solid #62b6cb;
-      padding-left: 15px;
-      margin-bottom: 20px;
+      border-left: 4px solid #38bdf8;
+      padding-left: 18px;
+      margin-bottom: 22px;
       position: relative;
     }
     .timeline-time {
       font-weight: bold;
-      color: #092327;
+      color: #0284c7;
       font-size: 1.1rem;
     }
     .timeline-title {
       font-weight: bold;
       font-size: 1.15rem;
-      color: #1b4965;
+      color: #0f172a;
       margin: 4px 0;
     }
-    
-    /* スケジュール内のリンクボタンデザイン */
     .schedule-link {
       display: inline-block;
-      margin: 4px 4px 4px 0;
-      padding: 6px 12px;
-      background-color: #bee9e8;
-      color: #1b4965;
+      margin: 6px 6px 6px 0;
+      padding: 6px 14px;
+      background-color: #e0f2fe;
+      color: #0369a1;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 6px;
+      border-radius: 20px;
       font-size: 0.9rem;
       transition: all 0.2s ease;
+      border: 1px solid #bae6fd;
     }
     .schedule-link:hover {
-      background-color: #62b6cb;
+      background-color: #0284c7;
       color: #ffffff;
     }
 
-    /* 詳細コンテンツ */
+    /* ---- 4. 昼の部・夜の部 詳細 ---- */
     .detail-box {
-      background: #f8fdff;
-      border: 1px solid #cae9ff;
-      border-radius: 8px;
-      padding: 15px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 18px;
       margin-top: 15px;
     }
     .detail-box h4 {
-      color: #1b4965;
+      color: #0369a1;
       margin-bottom: 8px;
       font-size: 1.1rem;
     }
-
-    /* バッジ・注意書き */
     .badge-notice {
       display: inline-block;
-      background: #e63946;
+      background: #ef4444;
       color: #fff;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       padding: 2px 8px;
       border-radius: 4px;
-      margin-left: 5px;
+      margin-left: 6px;
+      vertical-align: middle;
     }
 
-    /* フッター */
+    /* ---- 5. 昨年の様子（ギャラリー・動画風枠） ---- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .gallery-item {
+      background: #e0f2fe;
+      border-radius: 12px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0284c7;
+      font-weight: bold;
+      border: 2px dashed #38bdf8;
+    }
+
+    /* ---- 6. 申し込み方法 & 公式LINE ---- */
+    .line-section {
+      text-align: center;
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+      border: 2px solid #22c55e;
+    }
+    .line-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #06c755; /* LINEグリーン */
+      color: #ffffff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 16px 32px;
+      border-radius: 50px;
+      text-decoration: none;
+      margin-top: 15px;
+      box-shadow: 0 6px 18px rgba(6, 199, 85, 0.35);
+      transition: transform 0.2s ease;
+    }
+    .line-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ---- フッター ---- */
     footer {
       text-align: center;
-      padding: 20px;
-      background: #1b4965;
-      color: #ffffff;
-      font-size: 0.9rem;
+      padding: 30px 15px 0;
+      color: #0369a1;
+      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
 
-  <!-- メインヘッダー -->
-  <header>
-    <!-- Jimdoのメイン画像を読み込んでいます -->
-    <img src="https://b-hoops-fes-1.jimdosite.com/s/img/user/142981308/1723512345.jpg" alt="B_hoops FES" class="hero-img" onerror="this.style.display='none'">
-    <h1>B_hoops FES</h1>
+  <!-- ==================== 1. トップページ（ロゴ・メイン画像・日時） ==================== -->
+  <header class="hero">
+    <div class="container">
+      <!-- メイン画像 -->
+      <img src="https://b-hoops-fes-1.jimdosite.com/s/img/user/142981308/1723512345.jpg" alt="B_hoops FES Main Image" class="hero-img" onerror="this.style.display='none'">
+      
+      <!-- ロゴ・タイトル -->
+      <h1 class="logo-title">B_hoops FES</h1>
+      
+      <!-- 開催日時 -->
+      <div class="event-date-badge">
+        📅 開催日時：〇月〇日（土） 11:00～20:30
+      </div>
+    </div>
   </header>
 
   <div class="container">
 
-    <!-- タイムスケジュール（概要＆リンク） -->
+    <!-- ==================== 2. イベント概要（参加費・受付開始） ==================== -->
+    <section class="section-card">
+      <h2 class="section-title">ℹ️ イベント概要</h2>
+      <div class="info-grid">
+        <div class="info-box">
+          <label>【参加費】</label>
+          <div class="value">大人：〇〇円 / 子ども：〇〇円</div>
+        </div>
+        <div class="info-box">
+          <label>【受付開始日時】</label>
+          <div class="value">昼の部 11:00～ / 夜の部 16:30～</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. タイムスケジュール ==================== -->
     <section class="section-card">
       <h2 class="section-title">📅 タイムスケジュール</h2>
       
-      <!-- 11:00～ -->
       <div class="timeline-item">
         <div class="timeline-time">11:00～12:00</div>
         <div class="timeline-title">【昼の部】受付</div>
         <p>昼食にORIBIOランチBOXをお渡しします。</p>
       </div>
 
-      <!-- 12:00～ 昼の部コンテンツ -->
       <div class="timeline-item">
         <div class="timeline-time">12:00～</div>
         <div class="timeline-title">【昼の部】メインイベント</div>
-        <p style="margin-bottom: 8px;">タップすると各詳細へジャンプします：</p>
+        <p style="margin-bottom: 6px; font-size: 0.9rem; color: #64748b;">タップすると詳細へスクロールします：</p>
         <div>
-          <a href="#sports" class="schedule-link">⚽ スポーツ大会</a>
-          <a href="#shop" class="schedule-link">🛖 古民家ショップ・屋台</a>
+          <a href="#day-section" class="schedule-link">⚽ スポーツ大会</a>
+          <a href="#day-section" class="schedule-link">🛖 古民家ショップ・屋台</a>
         </div>
       </div>
 
-      <!-- 16:30～ -->
       <div class="timeline-item">
         <div class="timeline-time">16:30～17:30</div>
         <div class="timeline-title">【夜の部】受付</div>
       </div>
 
-      <!-- 17:00～ 夜の部コンテンツ -->
       <div class="timeline-item">
         <div class="timeline-time">17:00～</div>
         <div class="timeline-title">【夜の部】メインイベント</div>
-        <p style="margin-bottom: 8px;">タップすると各詳細へジャンプします：</p>
+        <p style="margin-bottom: 6px; font-size: 0.9rem; color: #64748b;">タップすると詳細へスクロールします：</p>
         <div>
-          <a href="#yatai" class="schedule-link">🍜 ORIBIOスタイル屋台</a>
-          <a href="#stage" class="schedule-link">🎤 野外イベント・ステージ</a>
+          <a href="#night-section" class="schedule-link">🍜 ORIBIOスタイル屋台</a>
+          <a href="#night-section" class="schedule-link">🎤 野外イベント・ステージ</a>
         </div>
       </div>
 
-      <!-- 20:30～ -->
       <div class="timeline-item">
         <div class="timeline-time">20:30～</div>
         <div class="timeline-title">終了予定</div>
       </div>
     </section>
 
-    <!-- 昼の部 詳細セクション -->
-    <section class="section-card">
+    <!-- ==================== 4. 昼の部・夜の部 詳細 ==================== -->
+    <section id="day-section" class="section-card">
       <h2 class="section-title">☀️ 昼の部 詳細</h2>
 
-      <!-- スポーツ大会 -->
-      <div id="sports" class="detail-box">
+      <div class="detail-box">
         <h4>⚽ B_hoops.主催スポーツ大会 <span class="badge-notice">要事前エントリー</span></h4>
         <p>白熱のスポーツ大会を開催！仲間と一緒に盛り上がりましょう！</p>
         <ul style="margin-left: 20px; margin-top: 8px;">
@@ -210,30 +313,60 @@
         </ul>
       </div>
 
-      <!-- 古民家ショップ -->
-      <div id="shop" class="detail-box">
+      <div class="detail-box">
         <h4>🛖 遊び屋台 & 古民家ショップ</h4>
         <p>昔ながらの雰囲気を楽しめる遊び屋台や、素敵なハンドメイド・雑貨が集まる古民家ショップが出店します。</p>
       </div>
     </section>
 
-    <!-- 夜の部 詳細セクション -->
-    <section class="section-card">
+    <section id="night-section" class="section-card">
       <h2 class="section-title">🌙 夜の部 詳細</h2>
 
-      <!-- 屋台 -->
-      <div id="yatai" class="detail-box">
+      <div class="detail-box">
         <h4>🍜 ORIBIOスタイル屋台（17:00～）</h4>
         <p>毎年大好評のヴィーガンORIBIOスタイルの屋台が今年も登場！</p>
-        <p style="margin-top: 5px;">カレーライス、焼きそば、唐揚げなど、バラエティ豊かなメニューをご用意しています。さらに現地の人気ラーメン店も出店予定！</p>
+        <p style="margin-top: 6px;">カレーライス、焼きそば、唐揚げなどバラエティ豊かなメニューをご用意しています。さらに現地の人気ラーメン店も出店予定！</p>
       </div>
 
-      <!-- 野外イベント -->
-      <div id="stage" class="detail-box">
+      <div class="detail-box">
         <h4>🎤 野外イベント（18:30～）</h4>
         <p>The Campusの生徒による心のこもった出し物を披露！</p>
-        <p style="margin-top: 5px;">後半には豪華景品が当たる「ビンゴ大会」など、ご来場の皆さま全員で参加して楽しめる企画をご用意しています。</p>
+        <p style="margin-top: 6px;">後半には豪華景品が当たる「ビンゴ大会」など、ご来場の皆さま全員で楽しめる企画をご用意しています。</p>
       </div>
+    </section>
+
+    <!-- ==================== 5. 昨年の様子 ==================== -->
+    <section class="section-card">
+      <h2 class="section-title">📸 昨年の様子</h2>
+      <p>昨年開催されたイベントの思い出写真やハイライトです！</p>
+      <div class="gallery-grid">
+        <div class="gallery-item">📷 昨年の写真 1</div>
+        <div class="gallery-item">📷 昨年の写真 2</div>
+        <div class="gallery-item">📷 昨年の写真 3</div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. アクセス方法 ==================== -->
+    <section class="section-card">
+      <h2 class="section-title">📍 アクセス方法</h2>
+      <p><strong>【会場】</strong>〇〇〇〇特設会場</p>
+      <p><strong>【住所】</strong>〇〇県〇〇市〇〇 1-2-3</p>
+      <div class="detail-box" style="margin-top: 12px;">
+        <p>🚗 <strong>お車でお越しの方：</strong> 無料駐車場あり（数に限りがございます）</p>
+        <p style="margin-top: 6px;">🚌 <strong>公共交通機関でお越しの方：</strong> 〇〇駅より徒歩〇分 / バスで〇〇停留所下車</p>
+      </div>
+    </section>
+
+    <!-- ==================== 7. 申し込み方法 & 公式LINEリンク ==================== -->
+    <section class="section-card line-section">
+      <h2 class="section-title" style="border-color: #22c55e; color: #15803d; justify-content: center;">💬 お申し込み方法</h2>
+      <p>イベントへのご参加・各種スポーツ大会への事前エントリーは、<strong>公式LINE</strong>より受け付けております！</p>
+      <p style="font-size: 0.9rem; color: #475569; margin-top: 6px;">下のボタンをタップして友だち追加の上、メッセージをお送りください。</p>
+      
+      <!-- LINE公式アカウントのリンク（ご自身のLINEリンクに書き換えてください） -->
+      <a href="https://line.me/" target="_blank" class="line-btn">
+        💬 公式LINEで申し込む
+      </a>
     </section>
 
   </div>
