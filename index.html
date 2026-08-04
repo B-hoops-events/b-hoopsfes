@@ -1,379 +1,742 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>B_hoops FES</title>
-  <style>
-    /* ---- 全体設定（空と海の色合い） ---- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-      background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%); /* 澄んだ空と海へのグラデーション */
-      color: #0f172a;
-      line-height: 1.6;
-      padding-bottom: 60px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B_hoops. 牛窓フェス 2026｜9月22日(火・祝) 岡山県瀬戸内市牛窓</title>
+<meta name="description" content="B_hoops. 野外フェス 2026年9月22日(火・祝) 11:00〜20:00 岡山県瀬戸内市牛窓 Glampingベースビーチにて開催。ビーチバレー・モルック大会、遊び屋台、古民家ショップ、夜はORIBIOスタイル屋台と野外イベント。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Shippori+Mincho:wght@500;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#081b2c;
+    --ink-soft:#33546c;
+    --foam:#eaf6fb;
+    --foam-deep:#d6eef6;
+    --paper:#ffffff;
+    --azure:#1a7fac;
+    --azure-deep:#0f6288;
+    --sea:#2f5d62;
+    --sea-light:#4f7c82;
+    --sky:#cdeef8;
+    --line:rgba(8,27,44,0.14);
+    --line-light:rgba(255,255,255,0.24);
+    --shadow:0 24px 48px -24px rgba(8,27,44,0.34);
+  }
 
-    /* ---- 1. トップページ（ヒーローセクション） ---- */
-    .hero {
-      background: #ffffff;
-      text-align: center;
-      padding: 30px 15px 40px;
-      border-bottom: 4px solid #38bdf8;
-      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.15);
-    }
-    .hero-img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 16px;
-      max-height: 480px;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    }
-    .logo-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #0284c7; /* 海の明るい青 */
-      margin-top: 20px;
-      letter-spacing: 1px;
-    }
-    .event-date-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #0284c7, #0369a1);
-      color: #ffffff;
-      font-size: 1.2rem;
-      font-weight: bold;
-      padding: 8px 24px;
-      border-radius: 50px;
-      margin-top: 12px;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-    }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Zen Kaku Gothic New', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block; max-width:100%; height:auto;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
 
-    /* ---- コンテナ ---- */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 15px;
-    }
+  .en{font-family:'Cormorant Garamond', serif;}
+  .mincho{font-family:'Shippori Mincho', serif;}
 
-    /* ---- セクション共通カード ---- */
-    .section-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 28px 20px;
-      margin-top: 30px;
-      box-shadow: 0 4px 15px rgba(14, 165, 233, 0.08);
-      border: 1px solid #e0f2fe;
-    }
-    .section-title {
-      font-size: 1.4rem;
-      color: #0369a1;
-      border-bottom: 3px solid #38bdf8;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-    }
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  section{position:relative;}
 
-    /* ---- 2. 概要リスト（参加費・受付開始日時） ---- */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
-    .info-box {
-      background: #f0f9ff;
-      border-left: 5px solid #0284c7;
-      padding: 15px;
-      border-radius: 8px;
-    }
-    .info-box label {
-      font-size: 0.85rem;
-      color: #0369a1;
-      font-weight: bold;
-      display: block;
-      margin-bottom: 4px;
-    }
-    .info-box .value {
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: #0f172a;
-    }
+  /* ---------- reveal ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity .9s ease, transform .9s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1; transform:none; transition:none;}
+    html{scroll-behavior:auto;}
+  }
 
-    /* ---- 3. タイムスケジュール ---- */
-    .timeline-item {
-      border-left: 4px solid #38bdf8;
-      padding-left: 18px;
-      margin-bottom: 22px;
-      position: relative;
-    }
-    .timeline-time {
-      font-weight: bold;
-      color: #0284c7;
-      font-size: 1.1rem;
-    }
-    .timeline-title {
-      font-weight: bold;
-      font-size: 1.15rem;
-      color: #0f172a;
-      margin: 4px 0;
-    }
-    .schedule-link {
-      display: inline-block;
-      margin: 6px 6px 6px 0;
-      padding: 6px 14px;
-      background-color: #e0f2fe;
-      color: #0369a1;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-      border: 1px solid #bae6fd;
-    }
-    .schedule-link:hover {
-      background-color: #0284c7;
-      color: #ffffff;
-    }
+  /* ---------- eyebrow / labels ---------- */
+  .eyebrow{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:.14em;
+    color:var(--azure);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:34px; height:1px;
+    background:var(--azure);
+    display:inline-block;
+  }
+  .eyebrow.on-dark{color:var(--sky);}
+  .eyebrow.on-dark::before{background:var(--sky);}
 
-    /* ---- 4. 昼の部・夜の部 詳細 ---- */
-    .detail-box {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 18px;
-      margin-top: 15px;
-    }
-    .detail-box h4 {
-      color: #0369a1;
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-    .badge-notice {
-      display: inline-block;
-      background: #ef4444;
-      color: #fff;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
+  h2.section-title{
+    font-family:'Shippori Mincho', serif;
+    font-weight:800;
+    font-size:clamp(28px,4.4vw,44px);
+    letter-spacing:.03em;
+    line-height:1.5;
+    margin-bottom:8px;
+  }
+  .section-sub{
+    color:var(--ink-soft);
+    font-size:15.5px;
+    max-width:46em;
+    margin-top:14px;
+  }
+  .on-dark .section-sub{color:rgba(251,248,241,0.72);}
 
-    /* ---- 5. 昨年の様子（ギャラリー・動画風枠） ---- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
+  /* ================= NAV ================= */
+  header.site-nav{
+    position:fixed; top:0; left:0; right:0;
+    z-index:100;
+    padding:18px 28px;
+    display:flex; justify-content:space-between; align-items:center;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+  }
+  header.site-nav .logo{
+    font-family:'Cormorant Garamond', serif;
+    font-size:22px;
+    font-weight:600;
+    color:#fff;
+    letter-spacing:.02em;
+    display:flex; align-items:center; gap:8px;
+    transition:color .4s ease;
+  }
+  header.site-nav .logo .dot{width:6px;height:6px;border-radius:50%; background:var(--azure); display:inline-block;}
+  header.site-nav nav{display:flex; gap:28px;}
+  header.site-nav nav a{
+    font-size:13px;
+    letter-spacing:.08em;
+    color:rgba(255,255,255,0.86);
+    padding-bottom:3px;
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, color .3s ease;
+  }
+  header.site-nav nav a:hover{border-color:var(--azure); color:#fff;}
+  header.site-nav.scrolled{
+    background:rgba(24,35,56,0.92);
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.18);
+    padding:12px 28px;
+  }
+  header.site-nav .nav-toggle{display:none;}
+  @media (max-width:760px){
+    header.site-nav nav{
+      position:fixed; inset:0 0 0 auto; width:76%; max-width:320px;
+      background:var(--ink); flex-direction:column; justify-content:center;
+      gap:26px; padding:40px; transform:translateX(100%);
+      transition:transform .4s ease;
     }
-    .gallery-item {
-      background: #e0f2fe;
-      border-radius: 12px;
-      height: 140px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #0284c7;
-      font-weight: bold;
-      border: 2px dashed #38bdf8;
+    header.site-nav nav.open{transform:translateX(0);}
+    header.site-nav nav a{font-size:16px; color:#fff;}
+    header.site-nav .nav-toggle{
+      display:flex; flex-direction:column; gap:5px; z-index:110;
+      background:none; border:none; cursor:pointer; padding:6px;
     }
+    header.site-nav .nav-toggle span{width:22px; height:2px; background:#fff; display:block; transition:.3s;}
+  }
 
-    /* ---- 6. 申し込み方法 & 公式LINE ---- */
-    .line-section {
-      text-align: center;
-      background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
-      border: 2px solid #22c55e;
-    }
-    .line-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      background-color: #06c755; /* LINEグリーン */
-      color: #ffffff;
-      font-size: 1.2rem;
-      font-weight: bold;
-      padding: 16px 32px;
-      border-radius: 50px;
-      text-decoration: none;
-      margin-top: 15px;
-      box-shadow: 0 6px 18px rgba(6, 199, 85, 0.35);
-      transition: transform 0.2s ease;
-    }
-    .line-btn:hover {
-      transform: translateY(-2px);
-    }
+  /* ================= HERO ================= */
+  .hero{
+    height:100svh; min-height:560px;
+    position:relative;
+    display:flex; align-items:flex-end;
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    transform:scale(1.06);
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(15,20,32,0.15) 0%, rgba(15,20,32,0.08) 38%, rgba(15,20,32,0.75) 100%);
+    z-index:1;
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    width:100%;
+    padding:0 28px 72px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .hero-eyebrow{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:16px;
+    letter-spacing:.22em;
+    color:var(--sky);
+    margin-bottom:20px;
+  }
+  .hero h1{
+    font-family:'Shippori Mincho', serif;
+    font-weight:800;
+    font-size:clamp(34px, 6.2vw, 64px);
+    line-height:1.4;
+    letter-spacing:.02em;
+    text-shadow:0 4px 24px rgba(0,0,0,0.25);
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:26px 44px;
+    margin-top:34px;
+    font-size:14.5px;
+    letter-spacing:.03em;
+  }
+  .hero-meta .meta-item{display:flex; flex-direction:column; gap:4px;}
+  .hero-meta .meta-label{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    color:rgba(255,255,255,0.6);
+    text-transform:uppercase;
+  }
+  .hero-meta .meta-value{font-size:17px; font-weight:700;}
+  .scroll-cue{
+    position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+    z-index:2; color:rgba(255,255,255,0.75); font-size:11px; letter-spacing:.2em;
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+  }
+  .scroll-cue .line{width:1px; height:34px; background:linear-gradient(to bottom, rgba(255,255,255,0.8), transparent); animation:cue 2.2s ease-in-out infinite;}
+  @keyframes cue{0%{transform:scaleY(.3); transform-origin:top;} 50%{transform:scaleY(1); transform-origin:top;} 100%{transform:scaleY(.3); transform-origin:bottom;}}
 
-    /* ---- フッター ---- */
-    footer {
-      text-align: center;
-      padding: 30px 15px 0;
-      color: #0369a1;
-      font-size: 0.85rem;
-    }
-  </style>
+  /* ================= OVERVIEW ================= */
+  .overview{background:var(--paper); padding:118px 0 96px;}
+  .overview .grid{
+    display:grid; grid-template-columns:1.05fr .95fr; gap:64px; align-items:start;
+  }
+  .overview p{color:var(--ink-soft); font-size:15.5px; max-width:42em;}
+  .overview p + p{margin-top:16px;}
+  .parts-split{
+    display:flex; flex-direction:column; gap:0;
+    border:1px solid var(--line); border-radius:2px; overflow:hidden;
+  }
+  .parts-split .part{padding:26px 28px; position:relative;}
+  .parts-split .part.day{background:var(--foam);}
+  .parts-split .part.night{background:var(--ink); color:#fff;}
+  .parts-split .part .tag{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:13px;
+    letter-spacing:.1em; color:var(--azure); margin-bottom:8px; display:block;
+  }
+  .parts-split .part.night .tag{color:var(--sky);}
+  .parts-split .part h3{font-family:'Shippori Mincho', serif; font-size:21px; font-weight:700; margin-bottom:6px;}
+  .parts-split .part .time{font-size:13.5px; color:var(--ink-soft); letter-spacing:.03em;}
+  .parts-split .part.night .time{color:rgba(255,255,255,0.65);}
+  @media (max-width:860px){ .overview .grid{grid-template-columns:1fr; gap:36px;} }
+
+  /* ================= DAY / NIGHT PART SECTIONS ================= */
+  .part-section{padding:110px 0;}
+  .part-section.day-part{background:var(--foam);}
+  .part-section.night-part{background:var(--ink); color:#fff;}
+  .part-head{margin-bottom:64px; max-width:640px;}
+
+  .feature-grid{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:44px 40px;
+  }
+  .feature-card{}
+  .fr-num{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:14px;
+    letter-spacing:.14em; color:var(--azure); margin-bottom:10px; display:block;
+  }
+  .night-part .fr-num{color:var(--sky);}
+  .feature-card h3{font-family:'Shippori Mincho', serif; font-weight:700; font-size:clamp(19px,2.1vw,22px); margin-bottom:16px; line-height:1.6;}
+  .fr-media{position:relative; overflow:hidden; border-radius:2px; box-shadow:var(--shadow); margin-bottom:18px; max-width:360px;}
+  .fr-media img{width:100%; height:100%; object-fit:cover; aspect-ratio:16/10; transition:transform .8s ease;}
+  .fr-media:hover img{transform:scale(1.05);}
+  .feature-card p{color:var(--ink-soft); font-size:14.5px; margin-bottom:10px; max-width:38em;}
+  .night-part .feature-card p{color:rgba(255,255,255,0.75);}
+  .fr-badges{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px;}
+  .badge{
+    font-size:12px; letter-spacing:.03em; padding:6px 13px;
+    border:1px solid var(--line); border-radius:20px; color:var(--ink-soft);
+  }
+  .night-part .badge{border-color:var(--line-light); color:rgba(255,255,255,0.8);}
+  .badge.strong{background:var(--azure); border-color:var(--azure); color:#fff; font-weight:700;}
+
+  @media (max-width:820px){
+    .feature-grid{grid-template-columns:1fr; gap:52px;}
+    .part-section{padding:80px 0;}
+    .fr-media{max-width:100%;}
+  }
+
+  /* ================= SCHEDULE ================= */
+  .schedule{background:var(--paper); padding:118px 0;}
+  .timeline{margin-top:60px; position:relative;}
+  .timeline::before{
+    content:''; position:absolute; left:110px; top:6px; bottom:6px; width:1px;
+    background:var(--line);
+  }
+  .t-row{display:grid; grid-template-columns:110px 1fr; gap:34px; padding:26px 0; position:relative;}
+  .t-row + .t-row{border-top:1px solid var(--line);}
+  .t-time{
+    font-family:'Cormorant Garamond', serif; font-weight:600; font-size:19px; color:var(--azure);
+    position:relative; padding-left:22px;
+  }
+  .t-time::before{
+    content:''; position:absolute; left:-4.5px; top:6px; width:9px; height:9px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--azure);
+  }
+  .t-body h4{font-family:'Shippori Mincho', serif; font-size:17px; font-weight:700; margin-bottom:6px;}
+  .t-body p{color:var(--ink-soft); font-size:14.5px;}
+  @media (max-width:640px){
+    .timeline::before{left:64px;}
+    .t-row{grid-template-columns:64px 1fr; gap:18px;}
+    .t-time{font-size:15px; padding-left:16px;}
+  }
+
+  /* ================= FEE ================= */
+  .fee{background:var(--foam-deep); padding:96px 0;}
+  .fee-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line); border:1px solid var(--line); margin-top:50px;}
+  .fee-card{background:var(--paper); padding:36px 34px;}
+  .fee-card .label{font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--azure); font-size:13px; letter-spacing:.1em; margin-bottom:10px; display:block;}
+  .fee-card .note-line{font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;}
+  .price-row{display:flex; flex-wrap:wrap; gap:30px 40px; align-items:flex-end;}
+  .fee-card .price{font-family:'Shippori Mincho', serif; font-size:34px; font-weight:800; margin-bottom:6px;}
+  .fee-card .price span{font-size:14px; font-weight:500; color:var(--ink-soft);}
+  .fee-note{margin-top:28px; font-size:13px; color:var(--ink-soft); border-left:2px solid var(--azure); padding-left:16px;}
+  .apply-strip{
+    margin-top:44px; display:flex; flex-wrap:wrap; gap:20px 40px; align-items:center; justify-content:space-between;
+    background:var(--paper); color:var(--ink); padding:28px 34px; border-radius:2px;
+    border:1px solid var(--foam-deep);
+  }
+  .apply-strip .at{font-size:13px; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:6px;}
+  .apply-strip .av{font-family:'Shippori Mincho', serif; font-size:19px; font-weight:700; color:var(--ink);}
+  @media (max-width:700px){ .fee-grid{grid-template-columns:1fr;} }
+
+  /* ================= VENUE ================= */
+  .venue{background:var(--paper); padding:118px 0;}
+  .venue-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:56px; align-items:stretch;}
+  .venue-map{border-radius:2px; overflow:hidden; box-shadow:var(--shadow); min-height:340px;}
+  .venue-map iframe{width:100%; height:100%; min-height:340px; border:0; display:block;}
+  .venue-info{background:var(--foam); padding:38px 36px; border-radius:2px;}
+  .venue-info h3{font-family:'Shippori Mincho', serif; font-size:20px; font-weight:700; margin-bottom:6px;}
+  .venue-info .addr{font-size:14.5px; color:var(--ink-soft); margin-bottom:22px;}
+  .venue-info .warn{
+    font-size:13.5px; color:var(--ink-soft); background:var(--paper); border-left:2px solid var(--azure);
+    padding:16px 18px; line-height:1.8;
+  }
+  @media (max-width:860px){ .venue-grid{grid-template-columns:1fr;} }
+
+  /* ================= APPLY ================= */
+  .apply{background:var(--ink); color:#fff; padding:118px 0;}
+  .apply-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:64px; margin-top:56px;}
+  .steps{counter-reset:step;}
+  .step{display:flex; gap:22px; padding:24px 0; border-top:1px solid var(--line-light);}
+  .step:last-child{border-bottom:1px solid var(--line-light);}
+  .step .snum{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-size:22px; color:var(--sky);
+    flex:none; width:40px;
+  }
+  .step h4{font-family:'Shippori Mincho', serif; font-size:16.5px; font-weight:700; margin-bottom:6px;}
+  .step p{font-size:14px; color:rgba(255,255,255,0.72);}
+  .format-card{
+    background:rgba(251,248,241,0.06); border:1px solid var(--line-light); border-radius:2px; padding:32px 30px;
+  }
+  .format-card .ft{font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--sky); font-size:13px; letter-spacing:.1em; margin-bottom:16px; display:block;}
+  .format-card dl{font-size:14px; color:rgba(255,255,255,0.85);}
+  .format-card dt{color:var(--sky); font-size:12.5px; letter-spacing:.04em; margin-top:14px;}
+  .format-card dt:first-child{margin-top:0;}
+  .format-card dd{margin-top:2px; color:rgba(255,255,255,0.7); font-size:13.5px;}
+  .line-btn{
+    margin-top:26px; display:inline-flex; align-items:center; gap:10px;
+    background:var(--azure); color:#fff; padding:15px 28px; border-radius:30px;
+    font-size:14.5px; font-weight:700; letter-spacing:.03em; transition:background .3s ease, transform .3s ease;
+  }
+  .line-btn:hover{background:var(--azure-deep); transform:translateY(-2px);}
+  .cancel-policy{margin-top:48px; padding-top:28px; border-top:1px solid var(--line-light); font-size:13px; color:rgba(255,255,255,0.62); line-height:1.9;}
+  .cancel-policy .ft{color:var(--sky); font-family:'Cormorant Garamond', serif; font-style:italic; letter-spacing:.1em; font-size:12.5px; display:block; margin-bottom:8px;}
+  @media (max-width:860px){ .apply-grid{grid-template-columns:1fr;} }
+
+  /* ================= GALLERY ================= */
+  .gallery{background:var(--foam); padding:118px 0 100px;}
+  .g-grid{
+    margin-top:56px;
+    columns:4 220px; column-gap:14px;
+  }
+  .g-grid figure{margin:0 0 14px; break-inside:avoid; border-radius:2px; overflow:hidden; box-shadow:0 12px 26px -16px rgba(24,35,56,0.35);}
+  .g-grid img{width:100%; display:block; transition:transform .6s ease, filter .6s ease;}
+  .g-grid figure:hover img{transform:scale(1.045);}
+  .signature-strip{
+    margin-top:70px; text-align:center; padding:56px 20px;
+    background:var(--paper); border:1px solid var(--line); border-radius:2px;
+  }
+  .signature-strip img{max-width:360px; margin:0 auto 22px; border-radius:2px;}
+  .signature-strip p{font-family:'Shippori Mincho', serif; font-size:17px; color:var(--ink-soft); font-style:normal;}
+  @media (max-width:700px){ .g-grid{columns:2 160px;} }
+
+  /* ================= FOOTER ================= */
+  footer{background:var(--ink); color:rgba(255,255,255,0.6); padding:56px 0 34px;}
+  .footer-top{display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px; padding-bottom:36px; border-bottom:1px solid var(--line-light);}
+  .footer-brand{font-family:'Cormorant Garamond', serif; font-size:24px; color:#fff; letter-spacing:.02em;}
+  .footer-brand small{display:block; font-family:'Zen Kaku Gothic New', sans-serif; font-size:12.5px; color:rgba(255,255,255,0.5); margin-top:8px; letter-spacing:.02em;}
+  .footer-links{display:flex; gap:26px; flex-wrap:wrap; font-size:13px;}
+  .footer-links a{color:rgba(255,255,255,0.65); transition:color .3s ease;}
+  .footer-links a:hover{color:var(--sky);}
+  .footer-bottom{margin-top:26px; font-size:12px; letter-spacing:.03em; color:rgba(255,255,255,0.4);}
+</style>
 </head>
 <body>
 
-  <!-- ==================== 1. トップページ（ロゴ・メイン画像・日時） ==================== -->
-  <header class="hero">
-    <div class="container">
-      <!-- メイン画像 -->
-      <img src="https://b-hoops-fes-1.jimdosite.com/s/img/user/142981308/1723512345.jpg" alt="B_hoops FES Main Image" class="hero-img" onerror="this.style.display='none'">
-      
-      <!-- ロゴ・タイトル -->
-      <h1 class="logo-title">B_hoops FES</h1>
-      
-      <!-- 開催日時 -->
-      <div class="event-date-badge">
-        📅 開催日時：〇月〇日（土） 11:00～20:30
+<header class="site-nav" id="siteNav">
+  <a href="#top" class="logo"><span class="dot"></span> B_hoops.</a>
+  <button class="nav-toggle" id="navToggle" aria-label="メニュー"><span></span><span></span><span></span></button>
+  <nav id="siteNavLinks">
+    <a href="#overview">概要</a>
+    <a href="#day">昼の部</a>
+    <a href="#night">夜の部</a>
+    <a href="#schedule">スケジュール</a>
+    <a href="#venue">会場</a>
+    <a href="#apply">申込方法</a>
+    <a href="#gallery">ギャラリー</a>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <img src="images/hero.jpg" alt="牛窓の海と夕焼け空、B_hoops. 牛窓フェス2026">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Setouchi, Ushimado — Beach Festival</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">2026年9月22日(火・祝) 11:00〜20:00</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Place</span>
+        <span class="meta-value">岡山県瀬戸内市牛窓 Glampingベースビーチ</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Entry</span>
+        <span class="meta-value">先着120名 ／ 9/1(月)12:00受付開始</span>
       </div>
     </div>
-  </header>
-
-  <div class="container">
-
-    <!-- ==================== 2. イベント概要（参加費・受付開始） ==================== -->
-    <section class="section-card">
-      <h2 class="section-title">ℹ️ イベント概要</h2>
-      <div class="info-grid">
-        <div class="info-box">
-          <label>【参加費】</label>
-          <div class="value">大人：〇〇円 / 子ども：〇〇円</div>
-        </div>
-        <div class="info-box">
-          <label>【受付開始日時】</label>
-          <div class="value">昼の部 11:00～ / 夜の部 16:30～</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==================== 3. タイムスケジュール ==================== -->
-    <section class="section-card">
-      <h2 class="section-title">📅 タイムスケジュール</h2>
-      
-      <div class="timeline-item">
-        <div class="timeline-time">11:00～12:00</div>
-        <div class="timeline-title">【昼の部】受付</div>
-        <p>昼食にORIBIOランチBOXをお渡しします。</p>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-time">12:00～</div>
-        <div class="timeline-title">【昼の部】メインイベント</div>
-        <p style="margin-bottom: 6px; font-size: 0.9rem; color: #64748b;">タップすると詳細へスクロールします：</p>
-        <div>
-          <a href="#day-section" class="schedule-link">⚽ スポーツ大会</a>
-          <a href="#day-section" class="schedule-link">🛖 古民家ショップ・屋台</a>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-time">16:30～17:30</div>
-        <div class="timeline-title">【夜の部】受付</div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-time">17:00～</div>
-        <div class="timeline-title">【夜の部】メインイベント</div>
-        <p style="margin-bottom: 6px; font-size: 0.9rem; color: #64748b;">タップすると詳細へスクロールします：</p>
-        <div>
-          <a href="#night-section" class="schedule-link">🍜 ORIBIOスタイル屋台</a>
-          <a href="#night-section" class="schedule-link">🎤 野外イベント・ステージ</a>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-time">20:30～</div>
-        <div class="timeline-title">終了予定</div>
-      </div>
-    </section>
-
-    <!-- ==================== 4. 昼の部・夜の部 詳細 ==================== -->
-    <section id="day-section" class="section-card">
-      <h2 class="section-title">☀️ 昼の部 詳細</h2>
-
-      <div class="detail-box">
-        <h4>⚽ B_hoops.主催スポーツ大会 <span class="badge-notice">要事前エントリー</span></h4>
-        <p>白熱のスポーツ大会を開催！仲間と一緒に盛り上がりましょう！</p>
-        <ul style="margin-left: 20px; margin-top: 8px;">
-          <li><strong>12:30～</strong> ビーチバレー大会</li>
-          <li><strong>15:00～</strong> モルック大会</li>
-        </ul>
-      </div>
-
-      <div class="detail-box">
-        <h4>🛖 遊び屋台 & 古民家ショップ</h4>
-        <p>昔ながらの雰囲気を楽しめる遊び屋台や、素敵なハンドメイド・雑貨が集まる古民家ショップが出店します。</p>
-      </div>
-    </section>
-
-    <section id="night-section" class="section-card">
-      <h2 class="section-title">🌙 夜の部 詳細</h2>
-
-      <div class="detail-box">
-        <h4>🍜 ORIBIOスタイル屋台（17:00～）</h4>
-        <p>毎年大好評のヴィーガンORIBIOスタイルの屋台が今年も登場！</p>
-        <p style="margin-top: 6px;">カレーライス、焼きそば、唐揚げなどバラエティ豊かなメニューをご用意しています。さらに現地の人気ラーメン店も出店予定！</p>
-      </div>
-
-      <div class="detail-box">
-        <h4>🎤 野外イベント（18:30～）</h4>
-        <p>The Campusの生徒による心のこもった出し物を披露！</p>
-        <p style="margin-top: 6px;">後半には豪華景品が当たる「ビンゴ大会」など、ご来場の皆さま全員で楽しめる企画をご用意しています。</p>
-      </div>
-    </section>
-
-    <!-- ==================== 5. 昨年の様子 ==================== -->
-    <section class="section-card">
-      <h2 class="section-title">📸 昨年の様子</h2>
-      <p>昨年開催されたイベントの思い出写真やハイライトです！</p>
-      <div class="gallery-grid">
-        <div class="gallery-item">📷 昨年の写真 1</div>
-        <div class="gallery-item">📷 昨年の写真 2</div>
-        <div class="gallery-item">📷 昨年の写真 3</div>
-      </div>
-    </section>
-
-    <!-- ==================== 6. アクセス方法 ==================== -->
-    <section class="section-card">
-      <h2 class="section-title">📍 アクセス方法</h2>
-      <p><strong>【会場】</strong>〇〇〇〇特設会場</p>
-      <p><strong>【住所】</strong>〇〇県〇〇市〇〇 1-2-3</p>
-      <div class="detail-box" style="margin-top: 12px;">
-        <p>🚗 <strong>お車でお越しの方：</strong> 無料駐車場あり（数に限りがございます）</p>
-        <p style="margin-top: 6px;">🚌 <strong>公共交通機関でお越しの方：</strong> 〇〇駅より徒歩〇分 / バスで〇〇停留所下車</p>
-      </div>
-    </section>
-
-    <!-- ==================== 7. 申し込み方法 & 公式LINEリンク ==================== -->
-    <section class="section-card line-section">
-      <h2 class="section-title" style="border-color: #22c55e; color: #15803d; justify-content: center;">💬 お申し込み方法</h2>
-      <p>イベントへのご参加・各種スポーツ大会への事前エントリーは、<strong>公式LINE</strong>より受け付けております！</p>
-      <p style="font-size: 0.9rem; color: #475569; margin-top: 6px;">下のボタンをタップして友だち追加の上、メッセージをお送りください。</p>
-      
-      <!-- LINE公式アカウントのリンク（ご自身のLINEリンクに書き換えてください） -->
-      <a href="https://line.me/" target="_blank" class="line-btn">
-        💬 公式LINEで申し込む
-      </a>
-    </section>
-
   </div>
+  <div class="scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+</section>
 
-  <footer>
-    <p>&copy; B_hoops FES. All Rights Reserved.</p>
-  </footer>
+<!-- ================= OVERVIEW ================= -->
+<section class="overview" id="overview">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow">About</span>
+        <h2 class="section-title">今年も、二部制で。</h2>
+        <p>牛窓の海辺に広がるプライベートビーチを舞台に、今年も B_hoops. 野外フェスを開催します。昼はスポーツ大会や屋台で汗を流し、夜は瀬戸内の夕景とともにヴィーガン屋台と野外イベントでゆっくり過ごす、二部構成の一日です。</p>
+        <p>ご都合に合わせて「全日参加」または「夜の部参加」からお選びいただけます。</p>
+      </div>
+      <div class="parts-split reveal">
+        <div class="part day">
+          <span class="tag">Part 1 — Day</span>
+          <h3>昼の部</h3>
+          <div class="time">12:00 – 16:00 ｜ ビーチバレー・モルック・屋台・古民家ショップ</div>
+        </div>
+        <div class="part night">
+          <span class="tag">Part 2 — Night</span>
+          <h3>夜の部</h3>
+          <div class="time">16:30 – 20:30 ｜ ORIBIOスタイル屋台・野外イベント</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ================= DAY PART ================= -->
+<section class="part-section day-part" id="day">
+  <div class="wrap">
+    <div class="part-head reveal">
+      <span class="eyebrow">12:00 — 16:00</span>
+      <h2 class="section-title">昼の部</h2>
+      <p class="section-sub">太陽の下、砂浜と芝生を使い切る時間。スポーツ大会も屋台も、すべて自由参加です。</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <span class="fr-num">01 — Beach Volley</span>
+        <h3>ビーチバレー大会</h3>
+        <div class="fr-media"><img src="images/volleyball-net.jpg" alt="ビーチバレーのネットと瀬戸内海"></div>
+        <p>毎年恒例のビーチバレー大会を今年も開催。なるべく4人1チームでのエントリーをお願いしています。4人以下の場合はランダムに組み合わせます。</p>
+        <div class="fr-badges">
+          <span class="badge strong">要事前エントリー(9/6まで)</span>
+        </div>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="fr-num">02 — Mölkky</span>
+        <h3>モルック大会<span style="font-size:13px; font-weight:400; color:var(--azure); margin-left:10px;">初開催</span></h3>
+        <div class="fr-media"><img src="images/molkku.jpg" alt="モルックの木製ピンとスロー"></div>
+        <p>運動が苦手な方も楽しめる「モルック」を今年初開催。木製のピンを倒して得点を競う、シンプルながら奥深いゲームです。初めての方にはルール説明もあります。</p>
+        <div class="fr-badges">
+          <span class="badge strong">要事前エントリー(9/6まで)</span>
+        </div>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="fr-num">03 — Play Stalls</span>
+        <h3>遊び屋台</h3>
+        <div class="fr-media"><img src="images/asobi-yatai.jpg" alt="秋祭りテーマの遊び屋台、提灯と紅白幕"></div>
+        <p>今年のテーマは秋祭り。スーパーボールすくいや射的など、縁日気分を楽しめる屋台をご用意しています。12:00〜16:00まで自由にご参加いただけます。</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="fr-num">04 — Old House Shop</span>
+        <h3>古民家ショップ</h3>
+        <div class="fr-media"><img src="images/kominka-shop.jpg" alt="古民家ショップの外観"></div>
+        <p>今年も12:00〜16:00まで古民家ショップが開店。ORIBIOオリジナルアイスクリーム、冷たいドリンク各種、B_hoops. グッズを販売予定。涼しい室内でくつろげる休憩スペースもあります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NIGHT PART ================= -->
+<section class="part-section night-part" id="night">
+  <div class="wrap">
+    <div class="part-head reveal">
+      <span class="eyebrow on-dark">16:30 — 20:30</span>
+      <h2 class="section-title">夜の部</h2>
+      <p class="section-sub">日が落ちて、海風が心地よくなる時間。ヴィーガンの屋台と、浜辺のステージを囲んで。</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <span class="fr-num">05 — ORIBIO Style</span>
+        <h3>ORIBIOスタイル屋台</h3>
+        <div class="fr-media"><img src="images/oribio-fire.jpg" alt="直火で調理するORIBIOスタイル屋台"></div>
+        <p>「菜食でこんな料理もできるの？！」— 海風を感じる浜辺で、直火や鉄板を使った野外ならではのヴィーガンメニューを。EM野菜や有機野菜をはじめ体にやさしい食材を使用し、動物性食材・アルコール・五葷は一切使いません。カレーライス、焼きそば、唐揚げなど、今年もバラエティ豊かに。現地のラーメン店も出店予定です。</p>
+        <div class="fr-badges"><span class="badge">動物性食材不使用</span><span class="badge">アルコール・五葷不使用</span></div>
+      </div>
+
+      <div class="feature-card reveal">
+        <span class="fr-num">06 — Outdoor Show</span>
+        <h3>野外イベント</h3>
+        <div class="fr-media"><img src="images/night-audience.jpg" alt="夜のステージを見つめる観客"></div>
+        <p>海辺近くの空気の綺麗な牛窓の空の下、The Campusの生徒による心を込めた出し物をゆっくりとくつろぎながらご覧いただけます。参加型ゲームやビンゴ大会も予定。一緒に楽しみましょう。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SCHEDULE ================= -->
+<section class="schedule" id="schedule">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Timeline</span>
+      <h2 class="section-title">スケジュール</h2>
+      <p class="section-sub">受付から終了まで。当日の流れです。</p>
+    </div>
+    <div class="timeline reveal">
+      <div class="t-row">
+        <div class="t-time">11:00</div>
+        <div class="t-body"><h4>受付</h4><p>昼食にORIBIOランチBOXをお渡しします。</p></div>
+      </div>
+      <div class="t-row">
+        <div class="t-time">12:00</div>
+        <div class="t-body">
+          <h4>遊び屋台 ／ B_hoops.主催スポーツ大会 ／ 古民家ショップ</h4>
+          <p>12:30〜 ビーチバレー大会　／　15:00〜 モルック大会(事前エントリーが必要です)</p>
+        </div>
+      </div>
+      <div class="t-row">
+        <div class="t-time">16:30</div>
+        <div class="t-body"><h4>夜の部 受付</h4><p>17:30まで随時受付いたします。</p></div>
+      </div>
+      <div class="t-row">
+        <div class="t-time">17:00</div>
+        <div class="t-body"><h4>ORIBIOスタイル屋台</h4><p>毎年大好評のヴィーガン屋台が今年も登場。現地のラーメン店も出店予定です。</p></div>
+      </div>
+      <div class="t-row">
+        <div class="t-time">18:30</div>
+        <div class="t-body"><h4>野外イベント</h4><p>The Campusの生徒による出し物のほか、ビンゴ大会などご来場の皆さまが参加できる企画も。</p></div>
+      </div>
+      <div class="t-row">
+        <div class="t-time">20:30</div>
+        <div class="t-body"><h4>終了予定</h4><p>お気をつけてお帰りください。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEE ================= -->
+<section class="fee" id="fee">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Fee</span>
+      <h2 class="section-title">参加費</h2>
+    </div>
+    <div class="fee-grid reveal">
+      <div class="fee-card">
+        <span class="label">All Day</span>
+        <div class="note-line" aria-hidden="true" style="visibility:hidden;">17:00〜屋台からの参加</div>
+        <div class="price-row">
+          <div class="price">¥18,000 <span>/ 全日参加</span></div>
+          <div class="price">¥15,000 <span>/ 2歳〜小学生</span></div>
+        </div>
+      </div>
+      <div class="fee-card">
+        <span class="label">Night Only</span>
+        <div class="note-line">17:00〜屋台からの参加</div>
+        <div class="price-row">
+          <div class="price">¥16,000 <span>/ 夜の部参加</span></div>
+          <div class="price">¥13,000 <span>/ 2歳〜小学生</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="fee-note reveal">※2歳未満のお子さまでも食事や席が必要な場合は有料になります。1名としてお申込みください。</p>
+    <div class="apply-strip reveal">
+      <div>
+        <div class="at">申込受付期間</div>
+        <div class="av">9/1(月) 12:00 〜 9/6(土) 12:00　／　先着120名様まで</div>
+      </div>
+      <a href="#apply" class="line-btn">申込方法を見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VENUE ================= -->
+<section class="venue" id="venue">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Venue</span>
+      <h2 class="section-title">開催場所</h2>
+      <p class="section-sub">ヒーロー画像の海と空は、まさにこの会場から見える景色です。</p>
+    </div>
+    <div class="venue-grid reveal">
+      <div class="venue-map">
+        <iframe src="https://www.google.com/maps?q=%E5%B2%A1%E5%B1%B1%E7%9C%8C%E7%80%AC%E6%88%B8%E5%86%85%E5%B8%82%E7%89%9B%E7%AA%93%E7%94%BA%E9%B9%BF%E5%BF%8D6679-5&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Glampingベースビーチ 地図"></iframe>
+      </div>
+      <div class="venue-info">
+        <h3>Glampingベースビーチ</h3>
+        <p class="addr">〒701-4303　岡山県瀬戸内市牛窓町鹿忍6679-5</p>
+        <div class="warn">
+          ※例年と同じ場所ですが、グランピングテントは撤去されております。日除けのタープテント、椅子はありますが、暑さ対策は各自でしっかりと行なっていただくようお願いいたします。
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPLY ================= -->
+<section class="apply" id="apply">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow on-dark">How to Apply</span>
+      <h2 class="section-title">申込方法</h2>
+      <p class="section-sub">お申込みは公式LINEから。フォーマットをコピーして送信してください。</p>
+    </div>
+    <div class="apply-grid">
+      <div class="steps reveal">
+        <div class="step">
+          <span class="snum">01</span>
+          <div><h4>公式LINEを事前に追加</h4><p>お申込みに必要な専用フォームは、お申込み開始日の前日に公式LINEより配信されます。</p></div>
+        </div>
+        <div class="step">
+          <span class="snum">02</span>
+          <div><h4>受付開始と同時に送信</h4><p>毎年大変ご好評をいただいており、開始直後に満席となる場合があります。9/1(月) 12:00ちょうどの送信がおすすめです。</p></div>
+        </div>
+        <div class="step">
+          <span class="snum">03</span>
+          <div><h4>フォーマットをコピーして送信</h4><p>下記のフォーマットをコピーし、必要事項を記入のうえ公式LINEへ送信してください。</p></div>
+        </div>
+        <a href="https://lin.ee/NQOtwL6" class="line-btn" target="_blank" rel="noopener">公式LINEを開く →</a>
+
+        <div class="cancel-policy">
+          <span class="ft">Cancellation Policy</span>
+          ■ 7/12(土)〜14(月) 24時までのキャンセルは参加費の50%<br>
+          ■ 9/15(火)以降〜当日のキャンセルは参加費の100%をご負担いただきます。あらかじめご了承ください。
+        </div>
+      </div>
+
+      <div class="format-card reveal">
+        <span class="ft">Application Format</span>
+        <dl>
+          <dt>代表者お名前</dt><dd>&nbsp;</dd>
+          <dt>参加者お名前</dt><dd>※2歳〜小学生の方は必ず年齢を記載してください</dd>
+          <dt>お電話番号</dt><dd>&nbsp;</dd>
+          <dt>車種・ナンバー</dt><dd>(車で来場される方のみ)</dd>
+          <dt>ビーチバレー or モルック</dt><dd>(スポーツ大会にエントリーされる方)</dd>
+          <dt>チーム名 ／ メンバー</dt><dd>※個人エントリーも可。ランダムで組みます。</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Last Year</span>
+      <h2 class="section-title">昨年の様子</h2>
+      <p class="section-sub">2025年のB_hoops.牛窓フェス、当日のひとコマから。</p>
+    </div>
+    <div class="g-grid reveal">
+      <figure><img src="images/g01-tents-wide.jpg" loading="lazy" alt="タープが並ぶビーチ全景"></figure>
+      <figure><img src="images/g04-volleyball-action.jpg" loading="lazy" alt="ビーチバレーの試合の様子"></figure>
+      <figure><img src="images/g07-food-stalls-line.jpg" loading="lazy" alt="屋台に並ぶ参加者たち"></figure>
+      <figure><img src="images/g10-stage-mc.jpg" loading="lazy" alt="夕方のステージ進行の様子"></figure>
+      <figure><img src="images/g03-running-beach.jpg" loading="lazy" alt="砂浜を走る参加者"></figure>
+      <figure><img src="images/g06-griddle-cooking.jpg" loading="lazy" alt="鉄板で野菜を調理する様子"></figure>
+      <figure><img src="images/g11-stage-performer.jpg" loading="lazy" alt="夜のステージパフォーマンス"></figure>
+      <figure><img src="images/g08-kids-food-yukata.jpg" loading="lazy" alt="浴衣姿の子どもと屋台の様子"></figure>
+      <figure><img src="images/g02-tents-wide2.jpg" loading="lazy" alt="海沿いに並ぶテント"></figure>
+      <figure><img src="images/g09-tent-daytime-chairs.jpg" loading="lazy" alt="テントの下でくつろぐ参加者"></figure>
+      <figure><img src="images/g12-stage-dance.jpg" loading="lazy" alt="夜のステージでの演舞"></figure>
+      <figure><img src="images/g05-icecream-counter.jpg" loading="lazy" alt="古民家ショップのアイスカウンター"></figure>
+    </div>
+
+    <div class="signature-strip reveal">
+      <img src="images/g13-sand-art-bhoops.jpg" alt="海藻で砂浜に描かれたB_hoopsの文字">
+      <p>See you on the beach, again. — 今年も、この浜辺で。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">B_hoops.
+        <small>牛窓フェス ／ 岡山県瀬戸内市牛窓 Glampingベースビーチ</small>
+      </div>
+      <div class="footer-links">
+        <a href="#overview">概要</a>
+        <a href="#apply">申込方法</a>
+        <a href="https://lin.ee/NQOtwL6" target="_blank" rel="noopener">公式LINE</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© B_hoops. 牛窓フェス</div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll style
+  const nav = document.getElementById('siteNav');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 40){ nav.classList.add('scrolled'); } else { nav.classList.remove('scrolled'); }
+  }, {passive:true});
+
+  // mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('siteNavLinks');
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.14});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
 </body>
 </html>
