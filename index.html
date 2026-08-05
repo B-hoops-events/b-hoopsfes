@@ -92,7 +92,7 @@
     max-width:46em;
     margin-top:14px;
   }
-  .on-dark .section-sub{color:rgba(251,248,241,0.72);}
+  .night-part .section-sub, .apply .section-sub{color:rgba(255,255,255,0.92);}
 
   /* ================= NAV ================= */
   header.site-nav{
@@ -183,14 +183,22 @@
     box-shadow:0 30px 60px -20px rgba(18,58,86,0.22);
     overflow:hidden;
   }
-  .hic-tag{
-    text-align:center; padding:22px 24px 18px;
-    font-family:'Cormorant Garamond', serif; font-style:italic;
-    font-size:14px; letter-spacing:.2em; color:var(--azure);
+  .hi-date{
+    text-align:center; padding:28px 24px 24px;
     border-bottom:1px solid var(--foam-deep);
   }
-  .hic-grid{display:grid; grid-template-columns:repeat(3,1fr);}
-  .hi-item{padding:30px 32px; border-left:1px solid var(--foam-deep); text-align:left;}
+  .hi-date-label{
+    display:block;
+    font-family:'Cormorant Garamond', serif; font-style:italic;
+    font-size:13px; letter-spacing:.2em; color:var(--azure); text-transform:uppercase; margin-bottom:10px;
+  }
+  .hi-date-value{
+    display:block;
+    font-family:'Shippori Mincho', serif; font-weight:800;
+    font-size:clamp(21px,3.2vw,30px); color:var(--ink); line-height:1.5;
+  }
+  .hic-grid{display:grid; grid-template-columns:repeat(2,1fr);}
+  .hi-item{padding:26px 32px; border-left:1px solid var(--foam-deep); text-align:left;}
   .hi-item:first-child{border-left:none;}
   .hi-label{
     display:block;
@@ -202,19 +210,22 @@
     .hero{height:78svh;}
     .hero-info-wrap{margin-top:26px; padding:0 12px;}
     .hero-info-card{border-radius:10px;}
-    .hic-tag{padding:14px 12px 12px; font-size:10.5px; letter-spacing:.1em;}
-    .hic-grid{grid-template-columns:repeat(3,1fr);}
+    .hi-date{padding:20px 14px 18px;}
+    .hi-date-label{font-size:10.5px; letter-spacing:.12em;}
+    .hi-date-value{font-size:16.5px;}
+    .hic-grid{grid-template-columns:repeat(2,1fr);}
     .hi-item{
-      padding:16px 6px; text-align:center;
+      padding:16px 10px; text-align:center;
       border-left:1px solid var(--foam-deep);
     }
     .hi-item:first-child{border-left:none;}
     .hi-label{font-size:9.5px; letter-spacing:.06em; margin-bottom:6px;}
-    .hi-value{font-size:11px; font-weight:600; line-height:1.6; letter-spacing:0;}
+    .hi-value{font-size:11.5px; font-weight:600; line-height:1.6; letter-spacing:0;}
   }
   @media (max-width:380px){
-    .hi-item{padding:14px 4px;}
-    .hi-value{font-size:10px;}
+    .hi-item{padding:14px 6px;}
+    .hi-value{font-size:10.5px;}
+    .hi-date-value{font-size:15px;}
   }
 
   /* ================= OVERVIEW ================= */
@@ -489,12 +500,11 @@
 
 <div class="hero-info-wrap">
   <div class="hero-info-card reveal">
-    <p class="hic-tag">Setouchi, Ushimado — Beach Festival</p>
+    <div class="hi-date">
+      <span class="hi-date-label">Date</span>
+      <span class="hi-date-value">2026年9月22日(火・祝) 11:00〜20:00</span>
+    </div>
     <div class="hic-grid">
-      <div class="hi-item">
-        <span class="hi-label">Date</span>
-        <span class="hi-value">2026年9月22日(火・祝)<br>11:00〜20:00</span>
-      </div>
       <div class="hi-item">
         <span class="hi-label">Place</span>
         <span class="hi-value">岡山県瀬戸内市牛窓<br>Glampingベースビーチ</span>
@@ -513,7 +523,7 @@
     <div class="grid">
       <div class="reveal">
         <span class="eyebrow">About</span>
-        <h2 class="section-title">今年も二部制で開催！</h2>
+        <h2 class="section-title">今年も、二部制で。</h2>
         <p>牛窓の海辺に広がるプライベートビーチを舞台に、今年も B_hoops. 野外フェスを開催します。昼はスポーツ大会や屋台で汗を流し、夜は瀬戸内の夕景とともにヴィーガン屋台と野外イベントでゆっくり過ごす、二部構成の一日です。</p>
         <p>ご都合に合わせて「全日参加」または「夜の部参加」からお選びいただけます。</p>
       </div>
@@ -566,7 +576,7 @@
       <div class="feature-card reveal">
         <span class="fr-num">03 — Play Stalls</span>
         <h3>遊び屋台</h3>
-        <div class="fr-media"><img src="images/asobi-yatai.jpg" alt="秋祭りテーマの遊び屋台、提灯と紅白幕"></div>
+        <div class="fr-media"><img src="images/asobi-yatai.jpg" alt="カラフルなボールプールのすくい遊び"></div>
         <p>今年のテーマは秋祭り。スーパーボールすくいや射的など、縁日気分を楽しめる屋台をご用意しています。12:00〜16:00まで自由にご参加いただけます。</p>
       </div>
 
@@ -594,7 +604,7 @@
         <span class="fr-num">05 — ORIBIO Style</span>
         <h3>ORIBIOスタイル屋台</h3>
         <div class="fr-media"><img src="images/oribio-fire.jpg" alt="直火で調理するORIBIOスタイル屋台"></div>
-        <p>「菜食でこんな料理もできるの？！」— 海風を感じる浜辺で、直火や鉄板を使った野外ならではのヴィーガンメニューを。EM野菜や有機野菜をはじめ体にやさしい食材を使用し、動物性食材・アルコール・五葷は一切使一切使っていません。お子様から大人の方まで、安心して楽しめる “本物のやさしさ” を込めたお料理です。</p>
+        <p>「菜食でこんな料理もできるの？！」— 海風を感じる浜辺で、直火や鉄板を使った野外ならではのヴィーガンメニューを。EM野菜や有機野菜をはじめ体にやさしい食材を使用し、動物性食材・アルコール・五葷は一切使いません。カレーライス、焼きそば、唐揚げなど、今年もバラエティ豊かに。現地のラーメン店も出店予定です。</p>
         <div class="fr-badges"><span class="badge">動物性食材不使用</span><span class="badge">アルコール・五葷不使用</span></div>
       </div>
 
@@ -783,7 +793,7 @@
   <img src="images/g13-sand-art-bhoops.jpg" alt="海藻で砂浜に描かれたB_hoopsの文字">
   <div class="closing-content reveal">
     <p class="closing-eyebrow">See you on the beach, again.</p>
-    <p class="closing-heading">今年もこの浜辺で会いましょう！</p>
+    <p class="closing-heading">今年も、この浜辺で。</p>
   </div>
 </section>
 
