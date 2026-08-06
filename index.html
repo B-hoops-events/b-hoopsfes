@@ -243,7 +243,7 @@
   .parts-split .part.day{
     background-color:var(--foam);
     background-image:
-      radial-gradient(120px 120px at 88% 8%, rgba(255,255,255,0.95), rgba(255,255,255,0) 70%),
+      radial-gradient(120px 120px at 88% 8%, rgba(255,251,238,0.95), rgba(255,251,238,0) 70%),
       radial-gradient(160px 50px at 12% 20%, rgba(255,255,255,0.85), transparent 70%),
       radial-gradient(130px 42px at 55% 75%, rgba(255,255,255,0.6), transparent 70%),
       linear-gradient(180deg, #d1eaf6 0%, var(--foam) 60%, var(--foam) 100%);
@@ -275,7 +275,7 @@
   .part-section.day-part{
     background-color:var(--foam);
     background-image:
-      radial-gradient(260px 260px at 92% 4%, rgba(255,255,255,0.95), rgba(255,255,255,0) 70%),
+      radial-gradient(260px 260px at 92% 4%, rgba(255,251,238,0.95), rgba(255,251,238,0) 70%),
       radial-gradient(360px 115px at 8% 12%, rgba(255,255,255,0.95), transparent 70%),
       radial-gradient(420px 130px at 60% 4%, rgba(255,255,255,0.9), transparent 70%),
       radial-gradient(300px 96px at 90% 20%, rgba(255,255,255,0.75), transparent 70%),
@@ -426,6 +426,16 @@
   .format-card dt{color:var(--sky); font-size:12.5px; letter-spacing:.04em; margin-top:14px;}
   .format-card dt:first-child{margin-top:0;}
   .format-card dd{margin-top:2px; color:rgba(255,255,255,0.7); font-size:13.5px;}
+  .format-card .group-label{
+    display:inline-block; margin-top:22px; margin-bottom:2px;
+    font-family:'Cormorant Garamond', serif; font-style:italic;
+    font-size:12px; letter-spacing:.06em;
+    color:rgba(255,241,189,0.95); background:transparent;
+    border:1px solid rgba(255,241,189,0.55);
+    padding:3px 10px; border-radius:20px;
+  }
+  .format-card .group-label:first-child{margin-top:0;}
+  .format-card .group-label + dt{margin-top:4px;}
   .line-btn{
     margin-top:26px; display:inline-flex; align-items:center; gap:10px;
     background:var(--azure); color:#fff; padding:15px 28px; border-radius:30px;
@@ -769,9 +779,9 @@
           <dt>代表者お名前</dt><dd>&nbsp;</dd>
           <dt>参加者お名前</dt><dd>※2歳〜小学生の方は必ず年齢を記載してください</dd>
           <dt>お電話番号</dt><dd>&nbsp;</dd>
-          <dt>(▼車で来場される方)</dt><dd>&nbsp;</dd>
+          <dt class="group-label">▼ 車で来場される方</dt>
           <dt>車種・ナンバー</dt><dd>&nbsp;</dd>
-          <dt>(▼スポーツ大会にエントリーされる方)</dt><dd>&nbsp;</dd>
+          <dt class="group-label">▼ スポーツ大会にエントリーされる方</dt>
           <dt>ビーチバレー or モルック</dt><dd>&nbsp;</dd>
           <dt>チーム名 ／ メンバー</dt><dd>※個人エントリーも可。ランダムで組みます。</dd>
         </dl>
