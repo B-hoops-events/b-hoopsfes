@@ -240,8 +240,26 @@
     border:1px solid var(--line); border-radius:2px; overflow:hidden;
   }
   .parts-split .part{padding:26px 28px; position:relative;}
-  .parts-split .part.day{background:var(--foam);}
-  .parts-split .part.night{background:var(--ink); color:#fff;}
+  .parts-split .part.day{
+    background-color:var(--foam);
+    background-image:
+      radial-gradient(120px 120px at 88% 8%, rgba(255,255,255,0.95), rgba(255,255,255,0) 70%),
+      radial-gradient(160px 50px at 12% 20%, rgba(255,255,255,0.85), transparent 70%),
+      radial-gradient(130px 42px at 55% 75%, rgba(255,255,255,0.6), transparent 70%),
+      linear-gradient(180deg, #d1eaf6 0%, var(--foam) 60%, var(--foam) 100%);
+  }
+  .parts-split .part.night{
+    color:#fff;
+    background-color:var(--ink);
+    background-image:
+      radial-gradient(2.4px 2.4px at 10% 20%, rgba(205,238,248,0.9), transparent 65%),
+      radial-gradient(1.8px 1.8px at 28% 55%, rgba(255,255,255,0.8), transparent 65%),
+      radial-gradient(2.2px 2.2px at 46% 15%, rgba(205,238,248,0.85), transparent 65%),
+      radial-gradient(1.8px 1.8px at 62% 60%, rgba(255,255,255,0.75), transparent 65%),
+      radial-gradient(2.4px 2.4px at 78% 25%, rgba(205,238,248,0.85), transparent 65%),
+      radial-gradient(1.8px 1.8px at 90% 70%, rgba(255,255,255,0.7), transparent 65%),
+      linear-gradient(180deg, #0a2839 0%, var(--ink) 60%, var(--ink) 100%);
+  }
   .parts-split .part .tag{
     font-family:'Cormorant Garamond', serif; font-style:italic; font-size:13px;
     letter-spacing:.1em; color:var(--azure); margin-bottom:8px; display:block;
@@ -257,6 +275,7 @@
   .part-section.day-part{
     background-color:var(--foam);
     background-image:
+      radial-gradient(260px 260px at 92% 4%, rgba(255,255,255,0.95), rgba(255,255,255,0) 70%),
       radial-gradient(360px 115px at 8% 12%, rgba(255,255,255,0.95), transparent 70%),
       radial-gradient(420px 130px at 60% 4%, rgba(255,255,255,0.9), transparent 70%),
       radial-gradient(300px 96px at 90% 20%, rgba(255,255,255,0.75), transparent 70%),
@@ -267,8 +286,8 @@
       radial-gradient(320px 100px at 90% 84%, rgba(255,255,255,0.7), transparent 70%),
       radial-gradient(360px 110px at 16% 94%, rgba(255,255,255,0.65), transparent 70%),
       linear-gradient(180deg, #d1eaf6 0%, var(--foam) 45%, var(--foam) 100%);
-    background-repeat:repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
-    background-size:100% 820px, 100% 589px, 100% 547px, 100% 869px, 100% 659px, 100% 645px, 100% 638px, 100% 596px, 100% 953px, 100% 100%;
+    background-repeat:no-repeat, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, repeat-y, no-repeat;
+    background-size:100% 100%, 100% 820px, 100% 589px, 100% 547px, 100% 869px, 100% 659px, 100% 645px, 100% 638px, 100% 596px, 100% 953px, 100% 100%;
   }
   .part-section.night-part{
     color:#fff;
@@ -360,7 +379,6 @@
   .fee-grid{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--line); border:1px solid var(--line); margin-top:50px;}
   .fee-card{background:var(--paper); padding:36px 34px;}
   .fee-card .label{font-family:'Cormorant Garamond', serif; font-style:italic; color:var(--azure); font-size:13px; letter-spacing:.1em; margin-bottom:10px; display:block;}
-  .fee-card .note-line{font-size:13.5px; color:var(--ink-soft); margin-bottom:18px;}
   .price-row{display:flex; flex-wrap:wrap; gap:30px 40px; align-items:flex-end;}
   .fee-card .price{font-family:'Shippori Mincho', serif; font-size:34px; font-weight:800; margin-bottom:6px;}
   .fee-card .price span{font-size:14px; font-weight:500; color:var(--ink-soft);}
@@ -623,7 +641,8 @@
   <div class="wrap">
     <div class="reveal">
       <span class="eyebrow">Timeline</span>
-      <h2 class="section-title">スケジュール</h2></div>
+      <h2 class="section-title">スケジュール</h2>
+    </div>
     <div class="timeline reveal">
       <div class="t-row">
         <div class="t-time">11:00</div>
@@ -633,7 +652,7 @@
         <div class="t-time">12:00</div>
         <div class="t-body">
           <h4>遊び屋台 ／ B_hoops.主催スポーツ大会 ／ 古民家ショップ</h4>
-          <p>12:30〜 ビーチバレー大会　／　15:00〜 モルック大会 (事前エントリーが必要です)</p></div>
+          <p>12:30〜 ビーチバレー大会　／　15:00〜 モルック大会 (事前エントリーが必要です)</p>
         </div>
       </div>
       <div class="t-row">
@@ -750,10 +769,10 @@
           <dt>代表者お名前</dt><dd>&nbsp;</dd>
           <dt>参加者お名前</dt><dd>※2歳〜小学生の方は必ず年齢を記載してください</dd>
           <dt>お電話番号</dt><dd>&nbsp;</dd>
-          <dt>(▼車で来場される方)</dd>
+          <dt>(▼車で来場される方)</dt><dd>&nbsp;</dd>
           <dt>車種・ナンバー</dt><dd>&nbsp;</dd>
-          <dt>(▼スポーツ大会にエントリーされる方)</dd>
-          <dt>ビーチバレー or モルック</dt><dd>
+          <dt>(▼スポーツ大会にエントリーされる方)</dt><dd>&nbsp;</dd>
+          <dt>ビーチバレー or モルック</dt><dd>&nbsp;</dd>
           <dt>チーム名 ／ メンバー</dt><dd>※個人エントリーも可。ランダムで組みます。</dd>
         </dl>
       </div>
